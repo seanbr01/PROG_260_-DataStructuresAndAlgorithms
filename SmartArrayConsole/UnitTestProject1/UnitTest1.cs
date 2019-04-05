@@ -63,13 +63,13 @@ namespace UnitTestProject1
             // assert is handled by ExpectedException
         }
 
-        // 
+        // SmartArray throw exception trying to set location to a negative location
         [TestMethod]
         [ExpectedException(typeof(IndexOutOfRangeException))]
         public void SetNegativeLocation()
         {
             SmartArray testSmartArray = new SmartArray(SMART_ARRAY_SIZE);
-            testSmartArray.SetAtIndex(SMART_ARRAY_SIZE, 15);
+            testSmartArray.SetAtIndex(SMART_ARRAY_SIZE, -5);
 
             // assert is handled by ExpectedException
         }
