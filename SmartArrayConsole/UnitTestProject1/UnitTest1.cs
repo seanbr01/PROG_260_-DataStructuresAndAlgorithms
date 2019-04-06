@@ -96,6 +96,15 @@ namespace UnitTestProject1
             Assert.IsFalse(testSmartArray.Find(test));
         }
 
+        // SmartArray should resize to 10
+        [TestMethod]
+        public void Resize_10()
+        {
+            SmartArray testSmartArray = new SmartArray(SMART_ARRAY_SIZE);
+            int resize = 10;
+            testSmartArray.Resize(resize);
 
+            Assert.IsNotNull(testSmartArray.GetAtIndex(resize - 1));
+        }
     }
 }
