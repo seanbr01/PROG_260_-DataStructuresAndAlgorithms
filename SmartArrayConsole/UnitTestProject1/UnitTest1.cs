@@ -106,5 +106,53 @@ namespace UnitTestProject1
 
             Assert.IsNotNull(testSmartArray.GetAtIndex(resize - 1));
         }
+
+        // SmartArray should preserve values after resize
+        [TestMethod]
+        public void ResizePreserveValues()
+        {
+            SmartArray testSmartArray = new SmartArray(SMART_ARRAY_SIZE);
+            int actual = 0;
+            for (int i = 0; i < SMART_ARRAY_SIZE; i++)
+            {
+                testSmartArray.SetAtIndex(i, i);
+                actual += testSmartArray.GetAtIndex(i);
+            }
+
+            testSmartArray.Resize(10);
+
+            // actual should equal 0 + 1 + 2 + 3 + 4 = 10
+            int expected = 10;
+            Assert.AreEqual(expected, actual, 0.000001, "SmartArray did not add correct values");
+        }
+
+        // SmartArray should resize to 5
+        [TestMethod]
+        public void Resize_5()
+        {
+            SmartArray testSmartArray = new SmartArray(10);
+            testSmartArray.Resize(SMART_ARRAY_SIZE);
+
+            Assert.IsNotNull(testSmartArray.GetAtIndex(SMART_ARRAY_SIZE - 1));
+        }
+
+        // SmartArray should preserve values after resize
+        [TestMethod]
+        public void ResizePreserveValues_()
+        {
+            SmartArray testSmartArray = new SmartArray(10);
+            int actual = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                testSmartArray.SetAtIndex(i, i);
+                actual += testSmartArray.GetAtIndex(i);
+            }
+
+            testSmartArray.Resize(SMART_ARRAY_SIZE);
+
+            // actual should equal 0 + 1 + 2 + 3 + 4 = 10
+            int expected = 45;
+            Assert.AreEqual(expected, actual, 0.000001, "SmartArray did not add correct values");
+        }
     }
 }
