@@ -37,6 +37,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual, 0.000001, "Did not set SmartArray loc 0 correctly");
         }
 
+        // Should proprerly assign values to all array elements
         [TestMethod]
         public void AddValueToAllLocations()
         {
@@ -73,5 +74,28 @@ namespace UnitTestProject1
 
             // assert is handled by ExpectedException
         }
+
+        // SmartArray should return true when using Find
+        [TestMethod]
+        public void FindValue_4()
+        {
+            SmartArray testSmartArray = new SmartArray(SMART_ARRAY_SIZE);
+            int test = 4;
+            testSmartArray.SetAtIndex(2, test);
+            
+            Assert.IsTrue(testSmartArray.Find(test));
+        }
+
+        // SmartArray should return false when using Find
+        [TestMethod]
+        public void NotFindValue_4()
+        {
+            SmartArray testSmartArray = new SmartArray(SMART_ARRAY_SIZE);
+            int test = 4;
+
+            Assert.IsFalse(testSmartArray.Find(test));
+        }
+
+
     }
 }
