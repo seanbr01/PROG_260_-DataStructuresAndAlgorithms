@@ -107,7 +107,7 @@ namespace UnitTestProject1
             Assert.IsNotNull(testSmartArray.GetAtIndex(resize - 1));
         }
 
-        // SmartArray should preserve values after resize
+        // SmartArray should preserve values after resize from 5 to 10
         [TestMethod]
         public void ResizePreserveValues()
         {
@@ -136,7 +136,7 @@ namespace UnitTestProject1
             Assert.IsNotNull(testSmartArray.GetAtIndex(SMART_ARRAY_SIZE - 1));
         }
 
-        // SmartArray should preserve values after resize
+        // SmartArray should preserve values after resize from 10 to 5
         [TestMethod]
         public void ResizePreserveValues_()
         {
@@ -150,7 +150,7 @@ namespace UnitTestProject1
 
             testSmartArray.Resize(SMART_ARRAY_SIZE);
 
-            // actual should equal 0 + 1 + 2 + 3 + 4 = 10
+            // actual should equal 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
             int expected = 45;
             Assert.AreEqual(expected, actual, 0.000001, "SmartArray did not add correct values");
         }
