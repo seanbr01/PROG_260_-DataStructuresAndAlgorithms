@@ -48,29 +48,33 @@ namespace UnitTestStack
 
          [TestMethod]
          // try the IndexOutOfRangeException when try and pop and empty stack
-       
+         [ExpectedException(typeof(IndexOutOfRangeException))]
          public void IndexOutOfRangeExceptionTest()
          {
-           
+            OurStack testStack = new OurStack(1);
+            int test = testStack.Pop();
          }
 
          [TestMethod]
          // try the OverflowException when no room left in backing array, test message
+         [ExpectedException(typeof(OverflowException))]
          public void OverflowExceptionMessage()
          {
-            
+            OurStack testStack = new OurStack(1);
+            testStack.Push(1);
+            testStack.Push(2);
          }
 
          [TestMethod]
          // try the myStack.Peek() method
          public void PeekTest()
          {
-            var testStack = new OurStack(1);
+            var testStack = new OurStack(3);
             int expected = 10;
             testStack.Push(30);
             testStack.Push(20);
             testStack.Push(expected);
-            int actual = 10;
+            int actual = testStack.Peek();
             Assert.AreEqual(expected, actual);
         }
 
@@ -78,8 +82,15 @@ namespace UnitTestStack
          // try the myStack.Peek() method again to make sure still there
          public void PeekAgainTest()
          {
-            
-         }
+            var testStack = new OurStack(3);
+            int expected = 10;
+            testStack.Push(30);
+            testStack.Push(20);
+            testStack.Push(expected);
+            int actual = testStack.Peek();
+            actual = testStack.Peek();
+            Assert.AreEqual(expected, actual);
+        }
         
          [TestMethod]
          //empty the stack
