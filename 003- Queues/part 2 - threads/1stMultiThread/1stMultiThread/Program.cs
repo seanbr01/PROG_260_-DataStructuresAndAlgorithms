@@ -53,7 +53,7 @@ namespace _1stMultiThread
             Random myRandom = new Random();
             for (int i = 0; i < 10; i++)
             {
-                //Thread.Sleep(myRandom.Next(1, 2) * 1000); // pretend the thread is doing useful work, buy taking a 3 to 4 second delay
+                Thread.Sleep(myRandom.Next(1, 2) * 1000); // pretend the thread is doing useful work, buy taking a 3 to 4 second delay
                 Console.WriteLine("thread 2");
             }
             Console.WriteLine(string.Join("  ", localArray));
@@ -65,7 +65,7 @@ namespace _1stMultiThread
             Random myRandom = new Random();
              for (int i = 0; i < 10; i++)
             {
-                //Thread.Sleep(myRandom.Next(1, 3) * 1000); // pretend the thread is doing useful work, buy taking a 4 to 5 second delay
+                Thread.Sleep(myRandom.Next(1, 3) * 1000); // pretend the thread is doing useful work, buy taking a 4 to 5 second delay
                 Console.WriteLine("thread 3");
             }
              Console.WriteLine(string.Join("  ", localArray));
