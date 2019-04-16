@@ -8,8 +8,8 @@ namespace OurQueueClass
 {
     public class OurQueue
     {
-        private int qTop;
-        private int qBottom;
+        private int qServNext;
+        private int qEndOfLine;
         // is really a pointer to the next unused slot in the array
 
         int[] ourData; // underlying array to hold the data
@@ -28,8 +28,8 @@ namespace OurQueueClass
         public OurQueue (int qSize)  // constructor, allow user to pick a reasonable upper limit for size
 	    {
             ourData = new int[qSize];  // set the size of the array
-            qTop = 0;  // next one to take out --> value makes no sense as queue is empty
-            qBottom = 0;  // next unused is top of array
+            qServNext = 0;  // next one to take out --> value makes no sense as queue is empty
+            qEndOfLine = 0;  // next unused is top of array
             counter = 0;  // zero makes sense
 	    }
 
@@ -38,15 +38,15 @@ namespace OurQueueClass
         public void Enqueue(int newItem)
         {
             counter++;  // adding one, so up the count on entries
-            ourData[qBottom] = newItem;  // put it where our bottom is
-            qBottom = qBottom + 1;  // otherwise, just bump it one
+            ourData[qEndOfLine] = newItem;  // put it where our bottom is
+            qEndOfLine = qEndOfLine + 1;  // otherwise, just bump it one
         }
 
         public int Dequeue()
         {
-            int returnValue = ourData[qTop];  // use our pointer to find it
+            int returnValue = ourData[qServNext];  // use our pointer to find it
             counter--;    // one less, so adjust count
-            qTop = qTop + 1; // else just bump it 1
+            qServNext = qServNext + 1; // else just bump it 1
             return returnValue;
         }
 
@@ -64,8 +64,8 @@ namespace OurQueueClass
 
         public void Clear()
         {
-            qTop = 0;
-            qBottom = 0;
+            qServNext = 0;
+            qEndOfLine = 0;
             counter = 0;
         }
     }
