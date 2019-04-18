@@ -33,10 +33,10 @@ namespace QwithThreads
             // This process will simulate a bank teller entering new account information 
             // into an application and submitting these to another department
             
-            Thread t2 = new Thread(ProcessApp); // create second Thread and tell it what to do (give it a delagate method)
+            Thread HomeOfficeThread = new Thread(ProcessApp); // create second Thread and tell it what to do (give it a delagate method)
             
             // start the 2nd thread, it represents the bank dept that  "processes" the applicaitons to create the new accounts
-            t2.Start(NewAccountsQ);
+            HomeOfficeThread.Start(NewAccountsQ);
 
             // Note the Start method passes by ref an object.
             // since it is an object, it is "by ref", so the queue in this 1st thread where new bank account applications are put

@@ -65,6 +65,7 @@ namespace ManyThreads
                 Thread.Sleep(100);
                 sum += mytaxi.theArray[i];
             }
+            Console.WriteLine("thread 1 " + sum);
             mytaxi.subTotal_1 = sum;
         }
         public static void workerBeeTask2(object taxi)
@@ -76,6 +77,7 @@ namespace ManyThreads
                 Thread.Sleep(100);
                 sum += mytaxi.theArray[i];
             }
+            Console.WriteLine("thread 2 " + sum);
             mytaxi.subTotal_2 = sum;
         }
         public static void workerBeeTask3(object taxi)
@@ -87,6 +89,7 @@ namespace ManyThreads
                 Thread.Sleep(100);
                 sum += mytaxi.theArray[i];
             }
+            Console.WriteLine("thread 3 " + sum);
             mytaxi.subTotal_3 = sum;
 
         }
