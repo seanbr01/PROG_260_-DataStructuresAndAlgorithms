@@ -101,36 +101,54 @@ namespace _1stLinkedList
         //*********************************************************************************************
         // add and code a method  RemoveByValue(value)
 
-       // public bool RemoveByValue(int target) // return true if found, false if not
-       // {
-            // deal with condition if list is empty
+        public bool RemoveByValue(int target) // return true if found, false if not
+        {
+            //    deal with condition if list is empty
+            if (frontOfList == null)
+            {
+                throw new IndexOutOfRangeException("list is empty");
+            }
+            //    create a current “reference” variable
+            LinkedListNode current = frontOfList;
+            //     if value is found in the first entry, change the frontOfList contents to effectively remove that node, and return true, for success
+            if (current.node_data == target)
+            {
+                frontOfList = current.node_next_pointer;
+                return true;
+            }
 
-            // create a current “reference” variable
-
-            // if value is found in the first entry, change the frontOfList contents to effectively remove that node, and return true, for success
-
-            // else list was not empty, and the first item was not the one we wanted
-
-            //already checked 1st one, need to look past current one to next one to see if that’s the one. As we need to
-            //change the pointer on the node BEFORE the one we remove, so we want current to point to node just before it
-
-
-            // do a while loop, where it exits if the current node’s pointer to the next node sees that the next node is null, which indicates we are at bottom of list
-            // in the while loop 
-
-            // if the current node’s pointer sees that the next node has the value we are looking for, 
-            // re-wire the current node’s next pointer to point to the node AFTER the next node, which will
-            // which will leave it disconnected as an orphan.
-            // and return true  (found it)
-
-            // if not, move the pointer, current, to the next node
-            // the value might be null, which is ok, our while loop we detect we are done
-
-            // if walked the entire list and did not find, will return false
-       // }
+            //     else list was not empty, and the first item was not the one we wanted
+            while (current.node_next_pointer != null)
+            {
+                if (current.node_next_pointer.node_data == target)
+                {
+                    current.node_next_pointer = current.node_next_pointer.node_next_pointer;
+                    return true;
+                }
+                current = current.node_next_pointer;
+            }
+            //    already checked 1st one, need to look past current one to next one to see if that’s the one.As we need to
+            //    change the pointer on the node BEFORE the one we remove, so we want current to point to node just before it
 
 
+            //     do a while loop, where it exits if the current node’s pointer to the next node sees that the next node is null, which indicates we are at bottom of list
+            //     in the while loop
 
+            //     if the current node’s pointer sees that the next node has the value we are looking for,
+            //     re - wire the current node’s next pointer to point to the node AFTER the next node, which will
+            //     which will leave it disconnected as an orphan.
+            //     and return true(found it)
 
+            //     if not, move the pointer, current, to the next node
+            //     the value might be null, which is ok, our while loop we detect we are done
+
+            //     if walked the entire list and did not find, will return false
+
+            return false;
         }
+
+
+
+
+    }
     }
