@@ -155,12 +155,43 @@ namespace _1stLinkedList
 
         internal void InsertAtEnd(int v)
         {
-            throw new NotImplementedException();
+            // If list is empty, the new node is inserted at the front of the list.
+            if (frontOfList == null)
+            {
+                InsertAtFront(v);
+                return;
+            }
+
+            // finds the end of the link list.
+            LinkedListNode current = frontOfList;
+            while (current.node_next_pointer != null)
+            {
+                current = current.node_next_pointer;
+            }
+            // inserts new node at the end of the list.
+            current.node_next_pointer = new LinkedListNode(v);
         }
 
         internal int RemoveFromEnd()
         {
-            throw new NotImplementedException();
+            if (frontOfList == null) // throws exception if list is empty
+            {
+                throw new IndexOutOfRangeException("Linked List is empty");
+            }
+            else if (frontOfList.node_next_pointer == null) // if there list only has one item, remove it from the front.
+            {
+                return RemoveFromFront();
+            }
+            
+            LinkedListNode current = frontOfList;
+            while (current.node_next_pointer.node_next_pointer != null) // find second to last node in list
+            {
+                current = current.node_next_pointer;
+            }
+
+            int returnValue = current.node_next_pointer.node_data; // save last node value
+            current.node_next_pointer = null; // remove reference to last node
+            return returnValue;
         }
     }
 }
