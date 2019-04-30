@@ -1,0 +1,6 @@
+ Stopwatch stopWatch = new Stopwatch();
+
+ stopWatch.Start();
+ Array.Sort(localArray);
+ stopWatch.Stop();
+ Console.WriteLine($"DotNetSort: {stopWatch.Elapsed}");
