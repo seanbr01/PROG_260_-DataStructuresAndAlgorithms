@@ -19,7 +19,7 @@ namespace FirstRecursion
     }
 
 
-    class PrintClass
+    public class PrintClass
     {
         public int recursionDemo(int f)
         {
