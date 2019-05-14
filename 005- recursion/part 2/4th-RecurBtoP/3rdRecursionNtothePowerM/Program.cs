@@ -70,7 +70,8 @@ namespace _3rdRecursionNtothePowerM
 
             // Now we finally call the private recursive method, and let its return just pass right thru to our return
             // after we correct the answer if the base number was negative and the power odd
-            return sign * raiseToPowerPrivateRecurrsive(baseValue, power);     
+            int returnFromRec = raiseToPowerPublicInterface(baseValue, power);
+            return sign * returnFromRec;
         }
 
         private int raiseToPowerPrivateRecurrsive(int baseValue, int power)  // this is the private recursive method
