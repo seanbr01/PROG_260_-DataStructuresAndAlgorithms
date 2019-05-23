@@ -13,11 +13,11 @@ namespace ConsoleApplication1
         {
             // make up 20 possible strings to store in hash table, using an empty [0] location for convenience, so array has 21 spots
             // will use loc's 1 thru 20 in our code below
-            string[] dataArray = new string[] {"empty by design", "President", "Vice President", "Speaker of the House", "President pro tempore of the Senate", 
-                "Secretary of State", "Secretary of the Treasury", "Secretary of Defense", "Attorney General", 
+            string[] dataArray = new string[] {"empty by design", "President", "Vice President", "Speaker of the House", "President pro tempore of the Senate",
+                "Secretary of State", "Secretary of the Treasury", "Secretary of Defense", "Attorney General",
                 "Secretary of the Interior", "Secretary of Agriculture", "Secretary of Commerce", "Secretary of Labor", "Secretary of Health and Human Services",
-            "Secretary of Housing and Urban Development", "Secretary of Transportation", "Secretary of Energy", "Secretary of Education",
-            "Secretary of Veterans Affairs", "Secretary of Homeland Security", "Prog 260 Teacher"};
+                "Secretary of Housing and Urban Development", "Secretary of Transportation", "Secretary of Energy", "Secretary of Education",
+                "Secretary of Veterans Affairs", "Secretary of Homeland Security", "Prog 260 Teacher"};
 
             // instantiate our hash table instance
             OurHashTable theHashTable = new OurHashTable(15); // hash TABLE is size 15
