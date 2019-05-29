@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="Book_BST.cs" />
     <Compile Include="ClassProjectVM.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
