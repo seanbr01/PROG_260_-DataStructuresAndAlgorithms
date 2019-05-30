@@ -61,10 +61,13 @@ namespace Prog260CourseProject
 
         private void btnAddData_Click(object sender, EventArgs e)
         {
-            foreach (Book book in myBook_BST.GetTestData())
-            {
-                myBook_BST.AddRec(book);
-            }
+            testAdd();
+            fillDataGrid();
+        }
+
+        private void btnTestRemove_Click(object sender, EventArgs e)
+        {
+            testRemove();
             fillDataGrid();
         }
 
@@ -95,6 +98,33 @@ namespace Prog260CourseProject
             clearForm();
             fillDataGrid();
         }
+        
+        private void testAdd()
+        {
+            Random random = new Random();
+            List<Book> books = new List<Book>()
+            {
+                new Book(){ ISBN = 6, Title = "Eternal Spring", Author = "Mandy Fletcher", PubYear = 1909, Rating = random.Next(6) },
+                new Book(){ ISBN = 3, Title = "Dream Boat", Author = "Kellie Franklin", PubYear = 1938, Rating = random.Next(6) },
+                new Book(){ ISBN = 4, Title = "2619: Rigel", Author = "Mable Henry", PubYear = 1958, Rating = random.Next(6) },
+                new Book(){ ISBN = 5, Title = "Unleash The Truth", Author = "Noel Pearson", PubYear = 2014, Rating = random.Next(6) },
+                new Book(){ ISBN = 8, Title = "Sean Bruce, The Book", Author = "Sean Bruce", PubYear = 1980, Rating = random.Next(6) },
+                new Book(){ ISBN = 7, Title = "2015: Pollux", Author = "Beatrice Barber", PubYear = 2016, Rating = random.Next(6) }
+            };
 
+            foreach (Book book in books)
+            {
+                myBook_BST.AddRec(book);
+            }
+        }
+
+        private void testRemove()
+        {
+            int[] remove = new int[] { 4, 3, 8, 7 };
+            foreach (int item in remove)
+            {
+                removeBook(item);
+            }
+        }
     }
 }

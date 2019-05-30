@@ -44,6 +44,7 @@
             this.btnGetAllISBNs = new System.Windows.Forms.Button();
             this.dgvISBN = new System.Windows.Forms.DataGridView();
             this.btnAddData = new System.Windows.Forms.Button();
+            this.btnTestRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvISBN)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,19 +193,30 @@
             // 
             // btnAddData
             // 
-            this.btnAddData.Location = new System.Drawing.Point(397, 250);
+            this.btnAddData.Location = new System.Drawing.Point(228, 478);
             this.btnAddData.Name = "btnAddData";
             this.btnAddData.Size = new System.Drawing.Size(112, 58);
             this.btnAddData.TabIndex = 15;
-            this.btnAddData.Text = "Add Data";
+            this.btnAddData.Text = "Test Add";
             this.btnAddData.UseVisualStyleBackColor = true;
             this.btnAddData.Click += new System.EventHandler(this.btnAddData_Click);
+            // 
+            // btnTestRemove
+            // 
+            this.btnTestRemove.Location = new System.Drawing.Point(399, 478);
+            this.btnTestRemove.Name = "btnTestRemove";
+            this.btnTestRemove.Size = new System.Drawing.Size(112, 58);
+            this.btnTestRemove.TabIndex = 16;
+            this.btnTestRemove.Text = "Test Remove";
+            this.btnTestRemove.UseVisualStyleBackColor = true;
+            this.btnTestRemove.Click += new System.EventHandler(this.btnTestRemove_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 680);
+            this.ClientSize = new System.Drawing.Size(1018, 679);
+            this.Controls.Add(this.btnTestRemove);
             this.Controls.Add(this.btnAddData);
             this.Controls.Add(this.dgvISBN);
             this.Controls.Add(this.btnGetAllISBNs);
@@ -248,6 +260,7 @@
         private System.Windows.Forms.Button btnGetAllISBNs;
         private System.Windows.Forms.DataGridView dgvISBN;
         private System.Windows.Forms.Button btnAddData;
+        private System.Windows.Forms.Button btnTestRemove;
     }
 }
 

@@ -320,11 +320,12 @@ namespace Prog260CourseProject
             Random random = new Random();
             List<Book> books = new List<Book>()
             {
-                new Book(){ ISBN = 0, Title = "Eternal Spring", Author = "Mandy Fletcher", PubYear = 1909, Rating = random.Next(6) },
-                new Book(){ ISBN = 1, Title = "Dream Boat", Author = "Kellie Franklin", PubYear = 1938, Rating = random.Next(6) },
-                new Book(){ ISBN = 2, Title = "2619: Rigel", Author = "Mable Henry", PubYear = 1958, Rating = random.Next(6) },
-                new Book(){ ISBN = 3, Title = "Unleash The Truth", Author = "Noel Pearson", PubYear = 2014, Rating = random.Next(6) },
-                new Book(){ ISBN = 4, Title = "2015: Pollux", Author = "Beatrice Barber", PubYear = 2016, Rating = random.Next(6) }
+                new Book(){ ISBN = 6, Title = "Eternal Spring", Author = "Mandy Fletcher", PubYear = 1909, Rating = random.Next(6) },
+                new Book(){ ISBN = 3, Title = "Dream Boat", Author = "Kellie Franklin", PubYear = 1938, Rating = random.Next(6) },
+                new Book(){ ISBN = 4, Title = "2619: Rigel", Author = "Mable Henry", PubYear = 1958, Rating = random.Next(6) },
+                new Book(){ ISBN = 5, Title = "Unleash The Truth", Author = "Noel Pearson", PubYear = 2014, Rating = random.Next(6) },
+                new Book(){ ISBN = 8, Title = "Sean Bruce, The Book", Author = "Sean Bruce", PubYear = 1980, Rating = random.Next(6) },
+                new Book(){ ISBN = 7, Title = "2015: Pollux", Author = "Beatrice Barber", PubYear = 2016, Rating = random.Next(6) }
             };
             return books;
         }
