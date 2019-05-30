@@ -51,12 +51,21 @@ namespace Prog260CourseProject
 
         private void btnRemoveFromISBN_Click(object sender, EventArgs e)
         {
-
+            removeBook(Convert.ToInt32(txbISBN.Text));
         }
 
         private void btnGetAllISBNs_Click(object sender, EventArgs e)
         {
-            dgvISBN.DataSource = myBook_BST.GetAll();
+            fillDataGrid();
+        }
+
+        private void btnAddData_Click(object sender, EventArgs e)
+        {
+            foreach (Book book in myBook_BST.GetTestData())
+            {
+                myBook_BST.AddRec(book);
+            }
+            fillDataGrid();
         }
 
         private void clearForm()
@@ -67,5 +76,25 @@ namespace Prog260CourseProject
             txbRating.Text = string.Empty;
             txbYear.Text = string.Empty;
         }
+
+        private void fillDataGrid()
+        {
+            dgvISBN.DataSource = myBook_BST.GetAll();
+        }
+
+        private void removeBook(int isbn)
+        {
+            try
+            {
+                myBook_BST.Remove(isbn);
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            clearForm();
+            fillDataGrid();
+        }
+
     }
 }
