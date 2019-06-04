@@ -37,6 +37,15 @@ namespace Prog260_Heap
             // (we are not going to use the zero element, as it makes the math statements simpler)
         }
 
+        internal string PeekTop()
+        {
+            if (currentSize == 0)
+            {
+                throw new ApplicationException("Heap Is Empty.");
+            }
+            return heapArray[1].nodeText;
+        }
+
         public bool IsEmpty  // property indicated empty heep
         {
             get
@@ -44,8 +53,7 @@ namespace Prog260_Heap
                 return currentSize == 0;  // will be true or false
             }
         }
-
-
+        
         public bool Insert(Node newNode)  // method to insert a new node, returns true if successful
         {
             if (currentSize == maxSize)  // fail if we are full  (could have an array expansion routine instead)
@@ -84,8 +92,7 @@ namespace Prog260_Heap
             heapArray[index] = bottom;  // finally either the node above you is bigger (or there are no more)
             // so you overwrite that parent (which you has just pushed a copy of down to your child before you got here
         }
-
-
+        
         public void CascadeDown(int index)  // 
         {
             // we use this 2 ways.  
