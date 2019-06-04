@@ -17,7 +17,11 @@ namespace ConsoleApplication1
                 "Amber", "Caitlin", "William", "Jake", "Joshua", "Jamie", "Eleanor", "Olivia", "Laura", "Lewis", "Benjamin", "Ethan", "Jade"};
 
             // these next two variables can be experimented with to see how they affect probability of collisions
+<<<<<<< HEAD
             int HashTableSize = 20;  // how much array space we will allow for our table
+=======
+            int HashTableSize = 120;  // how much array space we will allow for our table
+>>>>>>> 8fefe3d6e12adb3d397ad1c1b3d36a0e77debca1
             int howMany = 19;  // how many names we will try and save in the hash table
 
             // instantiate our hash table instance
@@ -64,6 +68,7 @@ namespace ConsoleApplication1
             Console.WriteLine("for every collision we had storing the data, we get erroneous data returned");
             Console.WriteLine("find the duplicate values returned.");
             Console.WriteLine();
+<<<<<<< HEAD
             //int counter = 0;
             for (int i = 1; i < howMany+1; i++)
             {
@@ -71,6 +76,13 @@ namespace ConsoleApplication1
                 //counter = i;
             }
             //Console.WriteLine(counter);
+=======
+            for (int i = 1; i < howMany+1; i++)
+            {
+                Console.WriteLine("if enter key of {0} we get back: {1}", ourKeys[i],  theHashTable.GetItem(ourKeys[i]) );
+            }
+
+>>>>>>> 8fefe3d6e12adb3d397ad1c1b3d36a0e77debca1
             Console.ReadLine();
         }
 

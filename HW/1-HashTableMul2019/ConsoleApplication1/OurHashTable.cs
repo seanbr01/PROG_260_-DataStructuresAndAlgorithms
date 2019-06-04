@@ -56,6 +56,7 @@ namespace ConsoleApplication1
         public string GetItem(int key)  // notice has fast a look up is!
         {
             LLnode lLnode = new LLnode();
+<<<<<<< HEAD
             foreach (LLnode node in betterHashTable[HashMul(key)])
             {
                 if (node.key == key)
@@ -64,6 +65,17 @@ namespace ConsoleApplication1
                 }
             }
             return lLnode == null ? string.Empty : lLnode.value;
+=======
+            try
+            {
+                lLnode = betterHashTable[HashMul(key)].ElementAt(key);
+            }
+            catch (Exception)
+            {
+                lLnode = null;
+            }
+            return lLnode == null ? string.Empty : lLnode.value; //(key == lLnode.key) ? lLnode.value : "";
+>>>>>>> 8fefe3d6e12adb3d397ad1c1b3d36a0e77debca1
         }
 
         internal void PrintState()  // this is sort of a diagnostic aid, wouldn't normally have this
