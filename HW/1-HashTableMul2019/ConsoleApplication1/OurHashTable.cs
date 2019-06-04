@@ -10,6 +10,11 @@ namespace ConsoleApplication1
     {
         class LLnode
         {
+            public LLnode(int newKey = 0, string newValue = "")
+            {
+                key = newKey;
+                value = newValue;
+            }
             public int key { get; set; }
             public string value { get; set; }
         }
@@ -27,25 +32,19 @@ namespace ConsoleApplication1
 
         public bool AddItem(int key, string value)
         {
-            LLnode lLnode = new LLnode()
-            {
-                key = key,
-                value = value
-            };
             int hashedKey = HashMul(key);  // the "human readable" key gets hashed it into this value using the division method below
 
             Console.Write("next random key " + key + "  its hashedKey is " + hashedKey);  // as we walk thru our loop, show what we are doing
             if (betterHashTable[hashedKey] == null)  // null value means this slot is empty, so we can write our data (now a string) here.
             {
-                var newLL = new LinkedList<LLnode>();
-                newLL.AddFirst(lLnode);
-                betterHashTable[hashedKey] = newLL;
+                betterHashTable[hashedKey] = new LinkedList<LLnode>();
+                betterHashTable[hashedKey].AddFirst(new LLnode(key, value));
                 Console.WriteLine();
                 return true;
             }
             else
             {
-                betterHashTable[hashedKey].AddFirst(lLnode);
+                betterHashTable[hashedKey].AddFirst(new LLnode(key, value));
 
                 Console.WriteLine("  <<< collision  at " + hashedKey); // else this spot was used, we will loose this data!
                 return false;
@@ -56,7 +55,6 @@ namespace ConsoleApplication1
         public string GetItem(int key)  // notice has fast a look up is!
         {
             LLnode lLnode = new LLnode();
-<<<<<<< HEAD
             foreach (LLnode node in betterHashTable[HashMul(key)])
             {
                 if (node.key == key)
@@ -65,17 +63,6 @@ namespace ConsoleApplication1
                 }
             }
             return lLnode == null ? string.Empty : lLnode.value;
-=======
-            try
-            {
-                lLnode = betterHashTable[HashMul(key)].ElementAt(key);
-            }
-            catch (Exception)
-            {
-                lLnode = null;
-            }
-            return lLnode == null ? string.Empty : lLnode.value; //(key == lLnode.key) ? lLnode.value : "";
->>>>>>> 8fefe3d6e12adb3d397ad1c1b3d36a0e77debca1
         }
 
         internal void PrintState()  // this is sort of a diagnostic aid, wouldn't normally have this
