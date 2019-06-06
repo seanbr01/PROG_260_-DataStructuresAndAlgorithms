@@ -39,14 +39,7 @@ namespace QwithThreads
 
             counter++;
             ourData[qBottom] = newItem;
-            if ((qBottom + 1) == ourData.Length)
-            {
-                qBottom = 0;
-            }
-            else
-            {
-                qBottom = qBottom + 1;
-            }
+            qBottom = ((qBottom + 1) == ourData.Length) ? qBottom = 0 : qBottom = qBottom + 1;
         }
 
         public BankAcct Dequeue()
@@ -57,40 +50,19 @@ namespace QwithThreads
             }
             BankAcct returnValue = ourData[qTop];
             counter--;
-            if ((qTop + 1) == ourData.Length)
-            {
-                qTop = 0;
-            }
-            else
-            {
-                qTop = qTop + 1;
-            }
+            qTop = (qTop + 1 == ourData.Length) ? qTop = 0 : qTop = qTop + 1;
             return returnValue;
 
         }
 
         public bool IsEmpty()
         {
-            if (counter == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (counter == 0) ? true : false;
         }
 
         public BankAcct Peek()
         {
-            if (counter == 0)
-            {
-                throw new IndexOutOfRangeException("Q is empty");
-            }
-            else
-            {
-                return ourData[qTop];
-            }
+            return (counter == 0) ? throw new IndexOutOfRangeException("Q is empty") : ourData[qTop];
         }
 
         public void Clear()

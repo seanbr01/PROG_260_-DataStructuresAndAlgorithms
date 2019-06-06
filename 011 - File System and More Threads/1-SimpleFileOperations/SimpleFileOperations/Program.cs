@@ -13,15 +13,18 @@ namespace SimpleFileOperations
         {
             // Use FileStream
 
+            string streamtest = @"C:\Users\Sean\Documents\streamtest.txt";
+            string testText = @"C:\Users\Sean\Documents\testText.txt";
+
             Console.WriteLine("Use FileStream to write bytes of data");
             Console.WriteLine();
             System.IO.FileStream useFileStream;
             byte[] byteData = new byte[] { 1, 44, 107, 117, 114, 116, 26, 3 };
-            useFileStream = new FileStream("C:\\Users\\kurt.friedrich\\Documents\\streamtest.txt", FileMode.Append);
+            useFileStream = new FileStream(streamtest, FileMode.Append);
             useFileStream.Write(byteData, 0, byteData.Length);
             useFileStream.Close();
 
-            useFileStream = new FileStream("C:\\Users\\kurt.friedrich\\Documents\\streamtest.txt", FileMode.Open);
+            useFileStream = new FileStream(streamtest, FileMode.Open);
             byte[] readData = new byte[14];
             useFileStream.Read(readData, 4, 7); // where to put it, offset to start, how many
 
@@ -51,7 +54,7 @@ namespace SimpleFileOperations
             string line2 = "how did this get here?";
             string line3 = "Line 2.";
             string readLine;
-            System.IO.TextWriter writeFile = new StreamWriter("C:\\Users\\kurt.friedrich\\Documents\\testText.txt");
+            System.IO.TextWriter writeFile = new StreamWriter(testText);
             writeFile.WriteLine(line1);
             writeFile.WriteLine(line2);
             writeFile.WriteLine(line3);
@@ -63,7 +66,7 @@ namespace SimpleFileOperations
             Console.ReadLine();
             
 
-            System.IO.TextReader readFile = new StreamReader("C:\\Users\\kurt.friedrich\\Documents\\testText.txt");
+            System.IO.TextReader readFile = new StreamReader(testText);
             while (!done)
             {
                 readLine = readFile.ReadLine();
@@ -98,7 +101,7 @@ namespace SimpleFileOperations
             Console.ReadLine();
             
             done = false;
-            System.IO.TextReader readFile2 = new StreamReader("C:\\Users\\kurt.friedrich\\Documents\\streamtest.txt");
+            System.IO.TextReader readFile2 = new StreamReader(streamtest);
             while (!done)
             {
                 readLine = readFile2.ReadLine();
@@ -113,8 +116,8 @@ namespace SimpleFileOperations
             }
             readFile2.Close();
 
-            File.Delete("C:\\Users\\kurt.friedrich\\Documents\\testText.txt");  // clean up our files
-            File.Delete("C:\\Users\\kurt.friedrich\\Documents\\streamtest.txt");
+            File.Delete(testText);  // clean up our files
+            File.Delete(streamtest);
 
             //======================================================
 
